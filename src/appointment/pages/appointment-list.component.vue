@@ -63,20 +63,20 @@ export default {
         tableStyle="min-width: 50rem"
         aria-label="Appointments Table"
     >
-      <pv-column field="id" header="ID" sortable style="width: 10%"></pv-column>
-      <pv-column field="patientCode" header="Patient Code" sortable style="width: 15%"></pv-column>
-      <pv-column field="doctorCode" header="Doctor Code" sortable style="width: 15%"></pv-column>
-      <pv-column field="scheduledAt" header="Scheduled At" sortable style="width: 20%"></pv-column>
-      <pv-column field="reason" header="Reason" style="width: 20%"></pv-column>
-      <pv-column header="Status" style="width: 10%">
+      <pv-column field="id" :header="$t('appointments.id')" sortable style="width: 10%"></pv-column>
+      <pv-column field="patientCode" :header="$t('appointments.patient-code')" sortable style="width: 15%"></pv-column>
+      <pv-column field="doctorCode" :header="$t('appointments.doctor-code')" sortable style="width: 15%"></pv-column>
+      <pv-column field="scheduledAt" :header="$t('appointments.scheduled-at')" sortable style="width: 20%"></pv-column>
+      <pv-column field="reason" :header="$t('appointments.reason')" style="width: 20%"></pv-column>
+      <pv-column :header="$t('appointments.status')" style="width: 10%">
         <template #body="slotProps">
           {{ $t(`status.${slotProps.data.status}`) }}
         </template>
       </pv-column>
-      <pv-column header="Actions" style="width: 10%">
+      <pv-column :header="$t('appointments.actions')" style="width: 10%">
         <template #body="slotProps">
           <pv-button
-              label="Record Consultation"
+              :label="$t('consultation.title')"
               icon="pi pi-pencil"
               size="small"
               :disabled="!slotProps.data.canRecordConsultation()"

@@ -13,10 +13,30 @@
     "go-home": "Return to Home"
   },
   "appointments": {
-    "title": "Scheduled Appointments"
+    "title": "Scheduled Appointments",
+    "id": "ID",
+    "patient-code": "Patient Code",
+    "doctor-code": "Doctor Code",
+    "scheduled-at": "Scheduled At",
+    "reason": "Reason",
+    "status": "Status",
+    "actions": "Actions"
   },
   "consultation": {
-    "title": "Record Consultation"
+    "title": "Record Consultation",
+    "details": "Consultation Details",
+    "appointment-id": "Appointment ID",
+    "diagnosis": "Diagnosis",
+    "treatment": "Treatment",
+    "diagnosis-placeholder": "Enter diagnosis details",
+    "treatment-placeholder": "Enter treatment details",
+    "save": "Save",
+    "cancel": "Cancel",
+    "success": "Success",
+    "error": "Error",
+    "validation-error": "Please fill in all required fields.",
+    "save-success": "Consultation saved successfully.",
+    "save-error": "Failed to save consultation. Please try again."
   },
   "status": {
     "PENDING": "Pending",

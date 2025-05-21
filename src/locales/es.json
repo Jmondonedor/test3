@@ -13,10 +13,30 @@
     "go-home": "Volver al Inicio"
   },
   "appointments": {
-    "title": "Citas Programadas"
+    "title": "Citas Programadas",
+    "id": "ID",
+    "patient-code": "Código del Paciente",
+    "doctor-code": "Código del Doctor",
+    "scheduled-at": "Programada Para",
+    "reason": "Motivo",
+    "status": "Estado",
+    "actions": "Acciones"
   },
   "consultation": {
-    "title": "Registrar Consulta"
+    "title": "Registrar Consulta",
+    "details": "Detalles de la Consulta",
+    "appointment-id": "ID de la Cita",
+    "diagnosis": "Diagnóstico",
+    "treatment": "Tratamiento",
+    "diagnosis-placeholder": "Ingrese detalles del diagnóstico",
+    "treatment-placeholder": "Ingrese detalles del tratamiento",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "success": "Éxito",
+    "error": "Error",
+    "validation-error": "Por favor complete todos los campos requeridos.",
+    "save-success": "Consulta guardada correctamente.",
+    "save-error": "Error al guardar la consulta. Por favor intente nuevamente."
   },
   "status": {
     "PENDING": "Pendiente",
