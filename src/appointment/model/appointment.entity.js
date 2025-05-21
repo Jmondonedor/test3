@@ -10,11 +10,10 @@ export class Appointment {
 
     isScheduledForToday() {
         const today = new Date();
+        today.setHours(0, 0, 0, 0);
         const scheduledDate = new Date(this.scheduledAt);
-
-        return today.getFullYear() === scheduledDate.getFullYear() &&
-            today.getMonth() === scheduledDate.getMonth() &&
-            today.getDate() === scheduledDate.getDate();
+        scheduledDate.setHours(0, 0, 0, 0);
+        return today.getTime() === scheduledDate.getTime();
     }
 
     isConfirmed() {

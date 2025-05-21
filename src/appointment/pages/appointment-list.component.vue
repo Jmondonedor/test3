@@ -23,7 +23,10 @@ export default {
       this.loading = true;
       this.appointmentService.getAll()
           .then(response => {
-            this.appointments = response.data.map(appointment => new Appointment(appointment));
+            // Check if response.data is an array, if not, try to extract data from the response structure
+            const appointmentsData = Array.isArray(response.data) ? response.data :
+                (response.data && response.data.appointments ? response.data.appointments : []);
+            this.appointments = appointmentsData.map(appointment => new Appointment(appointment));
             this.loading = false;
           })
           .catch(error => {
@@ -64,24 +67,24 @@ export default {
         tableStyle="min-width: 50rem"
         aria-label="Appointments Table"
     >
-      <pv-column field="id" :header="$t('appointments.id')" sortable style="width: 10%"></pv-column>
-      <pv-column field="patientCode" :header="$t('appointments.patientCode')" sortable style="width: 15%"></pv-column>
-      <pv-column field="doctorCode" :header="$t('appointments.doctorCode')" sortable style="width: 15%"></pv-column>
-      <pv-column :header="$t('appointments.scheduledAt')" sortable style="width: 20%">
+      <pv-column field="id" header="ID" sortable style="width: 10%"></pv-column>
+      <pv-column field="patientCode" header="Patient Code" sortable style="width: 15%"></pv-column>
+      <pv-column field="doctorCode" header="Doctor Code" sortable style="width: 15%"></pv-column>
+      <pv-column header="Scheduled At" sortable style="width: 20%">
         <template #body="slotProps">
           {{ formatDate(slotProps.data.scheduledAt) }}
         </template>
       </pv-column>
-      <pv-column field="reason" :header="$t('appointments.reason')" style="width: 20%"></pv-column>
-      <pv-column :header="$t('appointments.status')" style="width: 10%">
+      <pv-column field="reason" header="Reason" style="width: 20%"></pv-column>
+      <pv-column header="Status" style="width: 10%">
         <template #body="slotProps">
           {{ $t(`status.${slotProps.data.status}`) }}
         </template>
       </pv-column>
-      <pv-column :header="$t('appointments.actions')" style="width: 10%">
+      <pv-column header="Actions" style="width: 10%">
         <template #body="slotProps">
           <pv-button
-              :label="$t('appointments.record-consultation')"
+              label="Record"
               icon="pi pi-pencil"
               size="small"
               :disabled="!slotProps.data.canRecordConsultation()"
