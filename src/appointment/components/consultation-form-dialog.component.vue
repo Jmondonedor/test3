@@ -56,10 +56,7 @@ export default {
 
       try {
         this.loading = true;
-        // Save the consultation
         await this.consultationService.create(this.consultation);
-
-        // Update the appointment status to ATTENDED
         await this.appointmentService.updateStatus(this.appointment.id, 'ATTENDED');
 
         this.$toast.add({

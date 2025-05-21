@@ -36,7 +36,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     console.log(`Navigating from ${from.name} to ${to.name}`);
-    // Set the page title
     let baseTitle = 'HealthEdge';
     document.title = `${baseTitle} | ${to.meta['title']}`;
     next();
