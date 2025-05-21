@@ -23,7 +23,6 @@ export default {
       this.loading = true;
       this.appointmentService.getAll()
           .then(response => {
-            // Check if response.data is an array, if not, try to extract data from the response structure
             const appointmentsData = Array.isArray(response.data) ? response.data :
                 (response.data && response.data.appointments ? response.data.appointments : []);
             this.appointments = appointmentsData.map(appointment => new Appointment(appointment));
@@ -45,9 +44,6 @@ export default {
     onConsultationSaved() {
       this.loadAppointments();
       this.closeConsultationDialog();
-    },
-    formatDate(dateStr) {
-      return new Date(dateStr).toLocaleString();
     }
   }
 };
@@ -70,11 +66,7 @@ export default {
       <pv-column field="id" header="ID" sortable style="width: 10%"></pv-column>
       <pv-column field="patientCode" header="Patient Code" sortable style="width: 15%"></pv-column>
       <pv-column field="doctorCode" header="Doctor Code" sortable style="width: 15%"></pv-column>
-      <pv-column header="Scheduled At" sortable style="width: 20%">
-        <template #body="slotProps">
-          {{ formatDate(slotProps.data.scheduledAt) }}
-        </template>
-      </pv-column>
+      <pv-column field="scheduledAt" header="Scheduled At" sortable style="width: 20%"></pv-column>
       <pv-column field="reason" header="Reason" style="width: 20%"></pv-column>
       <pv-column header="Status" style="width: 10%">
         <template #body="slotProps">
