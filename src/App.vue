@@ -1,47 +1,70 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import LanguageSwitcher from "@/public/components/language-switcher.component.vue";
+import FooterContent from "@/public/components/footer-content.component.vue";
+
+export default {
+  name: "App",
+  components: {FooterContent, LanguageSwitcher},
+  data() {
+    return {
+      drawer: false,
+      items: [
+        { label: 'option.home', to: '/home' },
+        { label: 'option.appointments', to: '/appointments' },
+      ]
+    }
+  },
+  methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer;
+    }
+  }
+}
 </script>
 
 <template>
+  <pv-toast />
+  <pv-confirm-dialog />
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <pv-toolbar class="bg-primary">
+      <template #start>
+        <pv-button class="p-button-text" icon="pi pi-bars" @click="toggleDrawer" />
+        <img src="https://logo.clearbit.com/healthedge.com" alt="HealthEdge Logo" height="40" class="ml-2" />
+        <h3 class="ml-2">Converge Without Limits</h3>
+      </template>
+      <template #center>
+        <div class="flex-column">
+          <pv-button v-for="item in items" :key="item.label" v-slot="slotProps">
+            <router-link :to="item.to" :class="slotProps['class']">{{ $t(item.label) }}</router-link>
+          </pv-button>
+        </div>
+      </template>
+      <template #end>
+        <language-switcher />
+      </template>
+    </pv-toolbar>
+    <pv-drawer v-model:visible="drawer" />
   </header>
-
   <main>
-    <TheWelcome />
+    <router-view />
   </main>
+  <footer>
+    <footer-content />
+  </footer>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
+  flex: 0 0 auto;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
 }
 </style>
