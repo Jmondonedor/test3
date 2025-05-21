@@ -76,7 +76,7 @@ export default {
       <pv-column header="Actions" style="width: 10%">
         <template #body="slotProps">
           <pv-button
-              label="Record"
+              label="Record Consultation"
               icon="pi pi-pencil"
               size="small"
               :disabled="!slotProps.data.canRecordConsultation()"

@@ -9,12 +9,16 @@ export class Appointment {
     }
 
     isScheduledForToday() {
-        // Parse the scheduledAt date (format: YYYY-MM-DD)
         const today = new Date();
-        const todayString = today.toISOString().split('T')[0]; // Get just the YYYY-MM-DD part
+
+        // Format today's date to match the scheduledAt format (YYYY-MM-DD)
+        // but adjust for timezone differences
+        const userTimezoneOffset = today.getTimezoneOffset() * 60000; // Convert minutes to milliseconds
+        const localDate = new Date(today - userTimezoneOffset);
+        const todayString = localDate.toISOString().split('T')[0]; // Get YYYY-MM-DD part
 
         // Debug logs to see what we're comparing
-        console.log("Today's date string:", todayString);
+        console.log("Today's date string (timezone adjusted):", todayString);
         console.log("Appointment scheduledAt:", this.scheduledAt);
         console.log("Match?", this.scheduledAt === todayString);
 

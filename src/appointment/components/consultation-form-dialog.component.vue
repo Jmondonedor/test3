@@ -48,7 +48,7 @@ export default {
         this.$toast.add({
           severity: 'error',
           summary: 'Error',
-          detail: this.$t('consultation.validation-error'),
+          detail: 'Please fill in all required fields.', // Hardcoded string
           life: 3000
         });
         return;
@@ -65,7 +65,7 @@ export default {
         this.$toast.add({
           severity: 'success',
           summary: 'Success',
-          detail: this.$t('consultation.success'),
+          detail: 'Consultation saved successfully.', // Hardcoded string
           life: 3000
         });
 
@@ -76,7 +76,7 @@ export default {
         this.$toast.add({
           severity: 'error',
           summary: 'Error',
-          detail: this.$t('consultation.error'),
+          detail: 'Failed to save consultation. Please try again.', // Hardcoded string
           life: 3000
         });
       } finally {
@@ -91,64 +91,56 @@ export default {
   <pv-dialog
       :visible="visible"
       :style="{ width: '450px' }"
-      :header="$t('consultation.title')"
-      :modal="true"
+      header="Consultation Details" :modal="true"
       class="p-fluid"
       @update:visible="$emit('update:visible', $event)"
       aria-labelledby="consultation-dialog-title"
   >
     <div class="field">
-      <label for="appointmentId">{{ $t('consultation.appointmentId') }}</label>
-      <pv-input-text
-          id="appointmentId"
-          v-model="consultation.appointmentId"
-          required
-          readonly
-          autofocus
-          aria-readonly="true"
-      />
+      <label for="appointmentId">Appointment ID</label> <pv-input-text
+        id="appointmentId"
+        v-model="consultation.appointmentId"
+        required
+        readonly
+        autofocus
+        aria-readonly="true"
+    />
     </div>
 
     <div class="field">
-      <label for="diagnosis">{{ $t('consultation.diagnosis') }}</label>
-      <pv-textarea
-          id="diagnosis"
-          v-model="consultation.diagnosis"
-          required
-          :placeholder="$t('consultation.diagnosis-placeholder')"
-          rows="5"
-          cols="30"
-          :class="{ 'p-invalid': submitted && !consultation.diagnosis }"
-          aria-required="true"
-      />
+      <label for="diagnosis">Diagnosis</label> <pv-textarea
+        id="diagnosis"
+        v-model="consultation.diagnosis"
+        required
+        placeholder="Enter diagnosis details" rows="5"
+        cols="30"
+        :class="{ 'p-invalid': submitted && !consultation.diagnosis }"
+        aria-required="true"
+    />
     </div>
 
     <div class="field">
-      <label for="treatment">{{ $t('consultation.treatment') }}</label>
-      <pv-textarea
-          id="treatment"
-          v-model="consultation.treatment"
-          required
-          :placeholder="$t('consultation.treatment-placeholder')"
-          rows="5"
-          cols="30"
-          :class="{ 'p-invalid': submitted && !consultation.treatment }"
-          aria-required="true"
-      />
+      <label for="treatment">Treatment</label> <pv-textarea
+        id="treatment"
+        v-model="consultation.treatment"
+        required
+        placeholder="Enter treatment details" rows="5"
+        cols="30"
+        :class="{ 'p-invalid': submitted && !consultation.treatment }"
+        aria-required="true"
+    />
     </div>
 
     <template #footer>
       <pv-button
-          :label="$t('consultation.cancel')"
-          icon="pi pi-times"
+          label="Cancel" icon="pi pi-times"
           class="p-button-text"
           @click="hideDialog"
           :disabled="loading"
           aria-label="Cancel"
       />
       <pv-button
-          :label="$t('consultation.save')"
-          icon="pi pi-check"
+          label="Save" icon="pi pi-check"
           class="p-button-primary"
           @click="saveConsultation"
           :loading="loading"

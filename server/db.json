@@ -6,7 +6,7 @@
       "doctorCode": "JMORALES",
       "scheduledAt": "2025-05-20",
       "reason": "Routine check-up",
-      "status": "CONFIRMED"
+      "status": "ATTENDED"
     },
     {
       "id": 2,
@@ -31,6 +31,12 @@
       "appointmentId": 1,
       "diagnosis": "Healthy, no issues",
       "treatment": "No treatment required"
+    },
+    {
+      "id": 2,
+      "appointmentId": 1,
+      "diagnosis": "Lupus",
+      "treatment": "Pastillas"
     }
   ]
 }
