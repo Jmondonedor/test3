@@ -1,0 +1,36 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "patientCode": "ASANCHEZ",
+      "doctorCode": "JMORALES",
+      "scheduledAt": "2025-05-20",
+      "reason": "Routine check-up",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": 2,
+      "patientCode": "MGOMEZ",
+      "doctorCode": "JMORALES",
+      "scheduledAt": "2026-12-01",
+      "reason": "Annual physical exam",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": 3,
+      "patientCode": "LFERNANDEZ",
+      "doctorCode": "JMORALES",
+      "scheduledAt": "2025-05-20",
+      "reason": "Flu symptoms",
+      "status": "PENDING"
+    }
+  ],
+  "consultations": [
+    {
+      "id": 1,
+      "appointmentId": 1,
+      "diagnosis": "Healthy, no issues",
+      "treatment": "No treatment required"
+    }
+  ]
+}

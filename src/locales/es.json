@@ -1,0 +1,26 @@
+{
+  "option": {
+    "home": "Inicio",
+    "appointments": "Citas"
+  },
+  "home": {
+    "title": "Inicio",
+    "welcome": "Bienvenido a HealthEdge"
+  },
+  "page-not-found": {
+    "title": "404 - Página No Encontrada",
+    "message": "La página '{route}' no fue encontrada",
+    "go-home": "Volver al Inicio"
+  },
+  "appointments": {
+    "title": "Citas Programadas"
+  },
+  "consultation": {
+    "title": "Registrar Consulta"
+  },
+  "status": {
+    "PENDING": "Pendiente",
+    "CONFIRMED": "Confirmada",
+    "ATTENDED": "Atendida"
+  }
+}

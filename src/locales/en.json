@@ -1,0 +1,26 @@
+{
+  "option": {
+    "home": "Home",
+    "appointments": "Appointments"
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome to HealthEdge"
+  },
+  "page-not-found": {
+    "title": "404 - Page Not Found",
+    "message": "The page at '{route}' was not found",
+    "go-home": "Return to Home"
+  },
+  "appointments": {
+    "title": "Scheduled Appointments"
+  },
+  "consultation": {
+    "title": "Record Consultation"
+  },
+  "status": {
+    "PENDING": "Pending",
+    "CONFIRMED": "Confirmed",
+    "ATTENDED": "Attended"
+  }
+}
